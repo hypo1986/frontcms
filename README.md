@@ -13,7 +13,7 @@ developer：hypo  ---  Version：1.0
 
 3. upfile img 
 
-4.color selector
+4. color selector
 
 5. text editor
 
