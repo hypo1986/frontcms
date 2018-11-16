@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo1 : 默认模式</title>
+
+<script type="text/javascript" src="../jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="xheditor-1.2.2.min.js"></script>
+<script type="text/javascript" src="xheditor_lang/zh-cn.js"></script>
+<style type="text/css">
+	.n{position: absolute;top:100px;left: 50%;margin-left: -400px;width: 800px;height: 400px;}
+</style>
+</head>
+<body>
+<button id="aa">aaaaa</button>
+<div class="n" style="display: none;">
+	<textarea id="elm1" name="elm1" class="xheditor" rows="20" cols="80" style="width: 80%">
+		<strong style="color: red">sdfsdfsdf</strong>
+	</textarea>
+</div>
+
+<script>
+	$('#aa').click(function(){
+		$('.n').show();
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿{
+    "success":true,
+    "pageId":12,
+    "childrenName":"image",
+    "childrenList":[{
+        "childrenId":"1",
+        "childrenWidth":"200",
+        "childrenHeight":"100",
+        "childrenLink":"/",
+        "childrenUrl":"/"
+    },{
+        "childrenId":"2",
+        "childrenWidth":"100",
+        "childrenHeight":"100",
+        "childrenLink":"/",
+        "childrenUrl":"/"
+    }]
+}

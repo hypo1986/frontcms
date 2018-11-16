@@ -1,0 +1,12 @@
+/*
+cms css
+2016-06-01
+*/
+
+.cms-wrap{
+	background-color: #eee;margin: 0 auto;width: 1200px;height:100px;
+	
+}
+.cms-wrap span{
+	color:red;
+}

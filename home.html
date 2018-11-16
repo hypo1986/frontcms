@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>cms post</title>
+    
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="js/excolor/css/sample.css">
+    <link rel="stylesheet" href="js/swiper/css/swiper.min.css">
+    <link href="bootstrap/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+        
+    <!--<link href="css/main.css" rel="stylesheet" type="text/css" />-->
+    
+    <link rel="stylesheet/less" href="css/main-dev.less" />
+    <script src="js/less.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <aside class="cms-top">
+      <span>Cms</span>
+      <button id="saveBtn" type="button" class="btn btn-success">保存</button>
+      <button id="showBtn" type="button" class="btn btn-info">预览</button>
+      <button id="sendBtn" type="button" class="btn btn-warning">发布</button>
+    </aside>
+
+    <aside class="cms-left">
+      <button type="button" class="btn btn-default">页面<br/>模版</button>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAddLayout">添加<br/>布局</button>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalOpenSetPage">页面<br/>设置</button>
+    </aside>
+
+
+
+<div class="send-tpl">
+    
+    <header class="header">
+      <span>header</span>
+    </header>
+
+    <article class="layout-wrap">
+
+    </article>
+
+    <footer class="footer">
+      footer
+    </footer>
+
+</div>
+
+
+<!-- Modal add module-->
+    <div class="modal fade" id="modalAddModule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加模块</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="md-addm-list">
+              <li style="display: none;">
+                <p class="ml-operat"><span><a modulename="swiper" href="javascript:;" class="md-addm-add">置入</a></span></p>
+                <p class="ml-summary">轮播图</p>
+              </li>
+              <li>
+                <p class="ml-operat"><span><a modulename="image" href="javascript:;" class="md-addm-add">置入</a></span></p>
+                <p class="ml-summary">图片</p>
+              </li>
+              <li>
+                <p class="ml-operat"><span><a modulename="text" href="javascript:;" class="md-addm-add">置入</a></span></p>
+                <p class="ml-summary">文本</p>
+              </li>
+              <li>
+                <p class="ml-operat"><span><a modulename="regular" href="javascript:;" class="md-addm-add">置入</a></span></p>
+                <p class="ml-summary">定期理财</p>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal set layout area bg-->
+    <div class="modal fade" id="modalSetLayoutBg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">布局区域背景</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="set-page">
+              <li class="fn-clear">
+                <label>区域背景颜色：</label>
+                <span class="inp-wrap"><input type="text" class="form-control color-input" id="slInBgColor" value="" /></span>
+              </li>
+              <li class="fn-clear">
+                <label>布局背景颜色：</label>
+                <span class="inp-wrap"><input type="text" class="form-control color-input" id="slBgColor" value="" /></span>
+              </li>
+              <li class="fn-clear">
+                <label>布局背景图片：</label>
+                <span class="inp-file-wrap"><input type="file" id="slBgImg" class="file-loading" accept="image/*" /></span>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary set-layout-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal add layout -->
+    <div class="modal fade" id="modalAddLayout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加布局</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="add-layout-list">
+              <li class="on" typename="banner"><a href="javascript:;"><span></span></a>通栏(990)</li>
+              <li typename="twocolumn"><a href="javascript:;"><span class="twol"></span><span class="twol"></span></a>两列等分(490 x 490)</li>
+              <li typename="threecolumn"><a href="javascript:;"><span class="threel"></span><span class="threel"></span><span class="threel"></span></a>三等分(320x320x320)</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary add-layout-el">添加</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal open set page -->
+    <div class="modal fade" id="modalOpenSetPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">页面设置</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="set-page">
+              <li class="fn-clear">
+                <label>页面背景颜色：</label>
+                <span class="inp-wrap"><input type="text" class="form-control color-input" id="spBgColor" value="" /></span>
+              </li>
+              <li class="fn-clear">
+                <label>页面背景图片：</label>
+                <span class="inp-file-wrap"><input type="file" id="spBgImg" class="file-loading" accept="image/*" /></span>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary set-page-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal add swiper -->
+    <div class="modal fade" id="modalAddSwiper" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加轮播图</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="set-img-base">
+              <li>
+                <label>图片宽度：</label>
+                <input type="text" class="form-control" id="sImgWidth" /> <span>px</span>
+              </li>
+              <li>
+                <label>图片高度：</label>
+                <input type="text" class="form-control" id="sImgHeight" /> <span>px</span>
+              </li>
+              <li class="button-wrap">
+                <button type="button" class="btn btn-danger st-add-el">新增轮播图</button>
+              </li>
+            </ul>
+            <table class="set-table">
+              <tr>
+                <th>图片</th>
+                <th>标题</th>
+                <th>链接</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+                <td><img src="/" width="200" height="50" /></td>
+                <td><input type="text" class="form-control st-title" /></td>
+                <td><input type="text" class="form-control st-link" /></td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-xs st-del-el">删除</button>
+                  <button type="button" class="btn btn-info btn-xs st-up-el">上移</button>
+                  <button type="button" class="btn btn-info btn-xs st-down-el">下移</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="/" width="200" height="50" /></td>
+                <td><input type="text" class="form-control st-title" /></td>
+                <td><input type="text" class="form-control st-link" /></td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-xs st-del-el">删除</button>
+                  <button type="button" class="btn btn-info btn-xs st-up-el">上移</button>
+                  <button type="button" class="btn btn-info btn-xs st-down-el">下移</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary add-swiper-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal add image -->
+    <div class="modal fade" id="modalAddImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加图片</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="set-img-base">
+              <li>
+                <label>图片宽度：</label>
+                <input type="text" class="form-control" id="maiImgWidth" /> <span>px</span>
+              </li>
+              <li>
+                <label>图片高度：</label>
+                <input type="text" class="form-control" id="maiImgHeight" /> <span>px</span>
+              </li>
+              <li class="button-wrap" style="display: none;">
+                <button type="button" class="btn btn-danger simage-add-el">新增图片</button>
+              </li>
+            </ul>
+            <table class="set-table">
+              <tr>
+                <th>图片</th>
+                <th>链接</th>
+                <th style="display: none;">操作</th>
+              </tr>
+              <tr class="sib-list">
+                <td width="500">
+                  <input type="file" class="st-url file-loading" accept="image/*" />
+                </td>
+                <td><input type="text" class="form-control st-link" /></td>
+                <td style="display: none;">
+                  <button type="button" class="btn btn-danger btn-xs simage-del-el">删除</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary add-image-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Modal add text -->
+    <div class="modal fade" id="modalAddText" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加文本</h4>
+          </div>
+          <div class="modal-body">
+            <div class="set-text-base">
+              <label>图片宽度：</label>
+              <input type="text" class="form-control" id="maiTextWidth" /> <span>px</span>
+            </div>
+            <div class="set-text-main">
+              <textarea id="elm1" name="elm1" class="set-text-content" rows="20" cols="80" style="width: 100%"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary add-text-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal add regular -->
+    <div class="modal fade" id="modalAddRegular" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加定期理财</h4>
+          </div>
+          <div class="modal-body">
+            <div class="set-regular-base">
+              <label>产品ID：</label>
+              <input type="text" class="form-control" id="maiRegularId" /> 
+              <button class="btn btn-success add-regular-pro">添加</button>
+            </div>
+            <div class="set-regular-main">
+              <table class="set-table">
+                <tr>
+                  <th>标题</th>
+                  <th>产品描述</th>
+                  <th>推荐角标</th>
+                  <th>操作</th>
+                </tr>
+                <tr class="sib-list">
+                  <td>
+                    凤保宝-AJSH-00
+                  </td>
+                  <td width="300">
+                    <input type="text" class="form-control regular-pro-desc" />
+                  </td>
+                  <td>
+                    <input type="file" class="regular-topic file-loading" accept="image/*" />
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="btn btn-danger btn-xs regular-pro-del">删除</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary add-regular-el">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="bootstrap/fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="bootstrap/fileinput/js/locales/zh.js" type="text/javascript"></script>
+
+    <script src="js/excolor/js/prettify.js" type="text/javascript"></script>
+    <script src="js/excolor/js/jquery.excolor.min.js" type="text/javascript"></script>
+
+    <script src="js/swiper/swiper.min.js"></script>
+    <script type="text/javascript" src="js/xheditor/xheditor-1.2.2.min.js"></script>
+    <script type="text/javascript" src="js/xheditor/xheditor_lang/zh-cn.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+<!-- 模版 -->
+    <textarea id="cmsHeaderTemplate" style="display: none;">
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta name="description" content="凤凰金融-活动页面。">
+          <meta name="keywords" content="凤凰金融,活动页面">
+          <title>凤凰金融-活动页面</title>
+          <link href="css/base.css" rel="stylesheet" type="text/css" />
+          <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" href="js/swiper/css/swiper.min.css">
+          <link rel="stylesheet/less" href="css/main.less" />
+          <script src="js/less.min.js" type="text/javascript"></script>
+          <!--[if lt IE 9]>
+              <script src="js/html5shiv.js"></script>
+          <![endif]-->
+        </head>
+        <body>
+    </textarea>
+    <textarea id="cmsFooterTemplate" style="display: none;">
+          <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+          <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+          <script src="js/swiper/swiper.min.js"></script>
+          <script type="text/javascript" src="js/xheditor/xheditor-1.2.2.min.js"></script>
+          <script type="text/javascript" src="js/xheditor/xheditor_lang/zh-cn.js"></script>
+        </body>
+      </html>
+    </textarea>
+    <script id="cmsFsetTemplate" type="text/x-jquery-tmpl">
+      <div class="f-set">
+          <span class="title">{{= $data.title}}</span>
+          <button type="button" class="btn btn-success btn-xs fs-set-el" data-toggle="modal" data-target="">设置</button>
+          <button type="button" class="btn btn-danger btn-xs fs-del-el">删除</button>
+          <button type="button" class="btn btn-info btn-xs fs-up-el">上移</button>
+          <button type="button" class="btn btn-info btn-xs fs-down-el">下移</button>
+      </div>
+    </script>
+
+    <script id="cmsAddModuleTemplate" type="text/x-jquery-tmpl">
+        <button type="button" class="btn btn-primary btn-xs add-module-el" data-toggle="modal" data-target="">添加模块</button>
+    </script>
+<!-- 模版 通栏布局 -->
+    <script id="cmsOneAreaTemplate" type="text/x-jquery-tmpl">
+       <section class="f-layout-area" style="background-color:{{= $data.layoutBgColor}};background-image:url('{{= $data.layoutBgImage}}');">
+        <div class="f-layout" typeid="{{= $data.layoutId}}" typename="{{= $data.layoutName}}" typetext="{{= $data.layoutText}}" style="background-color:{{= $data.layoutInBgColor}};">
+          <div class="fl-module" moduleid="{{= $data.moduleId}}">
+            
+          </div>
+        </div>
+      </section>
+    </script>
+<!-- 模版 两列布局 -->
+    <script id="cmsTwoAreaTemplate" type="text/x-jquery-tmpl">
+       <section class="f-layout-area" style="background-color:{{= $data.layoutBgColor}};background-image:url('{{= $data.layoutBgImage}}');">
+        <div class="f-layout clearfix" typeid="{{= $data.layoutId}}" typename="{{= $data.layoutName}}" typetext="{{= $data.layoutText}}" style="background-color:{{= $data.layoutInBgColor}};">
+          <div class="fl-module flmone" moduleid="{{= $data.moduleId}}">
+            
+          </div>
+          <div class="fl-module flmtwo" moduleid="{{= $data.moduleId2}}">
+            
+          </div>
+        </div>
+      </section>
+    </script>
+<!-- 模版 三列布局 -->
+    <script id="cmsThreeAreaTemplate" type="text/x-jquery-tmpl">
+       <section class="f-layout-area" style="background-color:{{= $data.layoutBgColor}};background-image:url('{{= $data.layoutBgImage}}');">
+        <div class="f-layout clearfix" typeid="{{= $data.layoutId}}" typename="{{= $data.layoutName}}" typetext="{{= $data.layoutText}}" style="background-color:{{= $data.layoutInBgColor}};">
+          <div class="fl-module flmtleft" moduleid="{{= $data.moduleId}}">
+            
+          </div>
+          <div class="fl-module flmtcenter" moduleid="{{= $data.moduleId2}}">
+            
+          </div>
+          <div class="fl-module flmtright" moduleid="{{= $data.moduleId3}}">
+            
+          </div>
+        </div>
+      </section>
+    </script>    
+<!-- 模版 公共布局 模块 -->
+    <script id="cmsModulePublicTemplate" type="text/x-jquery-tmpl">
+      <section class="f-module-pannel" typeid="{{= $data.childrenId}}" modulename="{{= $data.childrenType}}">
+
+      </section>
+    </script>    
+<!-- 模版 轮播图 模块 -->
+    <script id="cmsModuleSwiperTemplate" type="text/x-jquery-tmpl">
+      <div class="swiper-container module-swiper-{{= $data.typeid}}" style="width:{{= $data.swiperwidth}};height:{{= $data.swiperheight}};">
+        <div class="swiper-wrapper">
+          {{each slideList}}  
+            <div class="swiper-slide">
+              <a href="{{= linkurl}}">
+                <img src="{{= imgurl}}" width="{{= $data.swiperwidth}}" height="{{= $data.swiperheight}}" />
+              </a>
+            </div>
+          {{/each}}    
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </script>
+    <!-- 模版 图片 模块 -->
+    <script id="cmsModuleImageTemplate" type="text/x-jquery-tmpl">
+      <div class="image-container">
+        <a href="{{= $data.childrenLink}}">
+          <img class="img-el" src="{{= $data.childrenUrl}}" style="width:{{= $data.childrenWidth}}px;height:{{= $data.childrenHeight}}px;" />
+        </a>
+      </div>
+    </script>
+    <!-- 模版 文本 模块 -->
+    <script id="cmsModuleTextTemplate" type="text/x-jquery-tmpl">
+        <div class="text-container" style="width:{{= $data.childrenWidth}}px;margin:0 auto;text-align: left;">
+          {{html $data.childrenContent}}
+        </div>
+    </script>
+    <!-- 模版 定期理财 模块 -->
+    <script id="cmsModuleRegularTemplate" type="text/x-jquery-tmpl">
+        <div class="regular-container">
+          
+        </div>
+    </script>
+
+    <script id="cmsFmoduleSetTemplate" type="text/x-jquery-tmpl">
+      <div class="fm-set">
+        <span class="title">{{= $data.title}}</span>
+        <button type="button" class="btn btn-success btn-xs fm-set-el" data-toggle="modal" data-target="">设置</button>
+        <button type="button" class="btn btn-danger btn-xs fm-del-el" data-toggle="modal" data-target="">删除</button>
+      </div>
+    </script>
+
+  </body>
+</html>
