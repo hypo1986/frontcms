@@ -1,19 +1,22 @@
 ﻿front-cms
 ----------
-# developer：hypo  ---  Version：1.0
+developer：hypo  ---  Version：1.0
 
 #jq + less + bootstrap
 
-# add layout
 
-# add module
+# Functional description：
 
-# upfile img 
+1. add layout
 
-# color selector
+2. add module
 
-# text editor
+3. upfile img 
 
-# Drag and drop layout
+4.color selector
 
-# Operation JSON Template
+5. text editor
+
+6. Drag and drop layout
+
+7. Operation JSON Template
